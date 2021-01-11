@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios';
 import * as T from '../constants';
 
+// githubUser type
 export interface GithubUserStateType {
   data: null | GithubUserRes;
   loading: boolean;
