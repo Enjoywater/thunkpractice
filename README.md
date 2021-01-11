@@ -1,5 +1,6 @@
 # Practice
 
+- CRA
 - Typescript
 - Redux
 - Redux-thunk
