@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
-import * as T from '../constants';
+import * as C from '../constants';
 
-// githubUser type
+// githubUser types
 export interface GithubUserStateType {
   data: null | GithubUserRes;
   loading: boolean;
@@ -44,16 +44,16 @@ export interface GithubUserRes {
 }
 
 export interface GithubRequestType {
-  type: typeof T.GITHUB_REQUEST;
+  type: typeof C.GITHUB_REQUEST;
 }
 
 export interface GithubSuccessType {
-  type: typeof T.GITHUB_SUCCESS;
+  type: typeof C.GITHUB_SUCCESS;
   payload: GithubUserRes;
 }
 
 export interface GithubFailureType {
-  type: typeof T.GITHUB_FAILURE;
+  type: typeof C.GITHUB_FAILURE;
   payload: AxiosError;
 }
 
@@ -61,3 +61,56 @@ export type GithubActionType =
   | GithubRequestType
   | GithubSuccessType
   | GithubFailureType;
+
+// jsonplaceholder types
+export interface JpStateType {
+  data: null | JpUserRes[];
+  loading: boolean;
+  error: null | AxiosError;
+}
+
+export interface JpUserRes {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: JpAddress;
+  phone: string;
+  website: string;
+  company: JpCompany;
+}
+
+export interface JpAddress {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: JpGeo;
+}
+
+export interface JpGeo {
+  lat: string;
+  lng: string;
+}
+
+export interface JpCompany {
+  name: string;
+  catchPhrase: string;
+  bs: string;
+}
+
+export interface JpRequestType {
+  type: typeof C.JP_REQUEST;
+}
+
+export interface JpSuccessType {
+  type: typeof C.JP_SUCCESS;
+  payload: JpUserRes[];
+}
+
+export interface JpFailureType {
+  type: typeof C.JP_FAILURE;
+  payload: AxiosError;
+}
+
+export type JpAction = JpRequestType | JpSuccessType | JpFailureType;
